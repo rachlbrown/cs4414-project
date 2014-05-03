@@ -1,0 +1,6 @@
+[submodule "discourse"]
+	path = discourse
+	url = git://github.com/rachlbrown/discourse.git
+[submodule "theCourseForum"]
+	path = theCourseForum
+	url = git://github.com/rachlbrown/theCourseForum.git
