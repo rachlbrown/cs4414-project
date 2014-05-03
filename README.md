@@ -1,2 +1,28 @@
-cs4414-project
+#Putting the 'Forum' in theCourseForum
 ==============
+The purpose of this project was to implement a forum into theCourseForum, an existing website that provides reviews of courses to University of Virginia students. The forum is an open discussion area for students to connect with other students on any subject. Each course taught at the University of Virginia will have its own forum for students to ask/answer questions about that specific course. This could range from homework help to questions about the professor. We hope to make theCourseForum a site that is needed throughout the entire school year.
+
+###So why are we doing this?
+theCourseForum is a website created by students to serve the University of Virginia student body. The site holds a compilation of freely available information about courses at UVa to help students select courses and arrange their schedule. Users can also submit reviews about courses and professors to further help their classmates make decisions about classes. However, grade statistics and professor reviews do not make a forum. The existing theCourseForum functionality does not allow users to post questions or reply to comments. This forum functionality is something that UVa students would find useful and that theCourseForum developers have wanted to add to their application. We, as UVa students, think that the application would be more useful if we could ask questions and receive responses from other students. 
+
+###Discourse
+The primary goal of our project is to add forum-like functionality to the existing theCourseForum application. This meant that our first step was to decide how to design the forum. After considering the possibility of designing and building our own forum, we decided to adapt an open-source forum instead. We thought that an already developed forum would have more features and be more complete than if we were do build our own forum from scratch in the relatively short amount of time we had for the project. Thus, we had to search for an open source forum application that we could adapt.
+
+We chose to use an open source forum called Discourse for our forum because it uses Ruby on Rails, which is the same web application framework that theCourseForum uses. However, this decision meant that we had to put a lot of work into merging the two applications.
+
+###Integrating Discourse with theCourseForum
+Because theCourseForum and Discourse are applications that already exist, our main design decisions involved how to integrate the two in the most useful way. We considered having a completely separate forum for each course, but because we want theCourseForum to become a site that is used by students year round, we decided that forum should be more versatile. 
+
+In our design, the forum is separate from the already existing course pages on theCourseForum. On theCourseForum home page, there is a link to view the forum. This way, students post questions that are more overarching than a single course or professor. In our design, a user can link to the forum page from theCourseForum home page, a department page, a professor page, or a course page. These links take the user to the forum page for their respective tag. We also updated the logos, layout, and general color scheme and design of our forum pages to provide consistency with theCourseForum.
+
+From the forum pages, a user can also link back to theCourseForum main page.
+
+###Tagger
+Tagging is an important part of our forum design. The original version of Discourse supports a categories functionality, where posts are stored under a specific category. However, each post can only map to one category, and this was not as versatile as we wanted our forum to be. We wanted forum posts to be ‘tagged’ with one or more labels that a user could then use to find the post. This means that a post could be more general, and potentially more useful, than a post that only has one category. 
+
+We added a plugin for Discourse called Tagger that allows users to attach labels to their posts. When creating a post, a user can choose one or more labels from the available tags. By clicking on a post’s tag, a user can link to a page that lists all the posts with that tag.
+
+A theCourseForum page for a course contains a link that takes the user to the forum page that lists all the posts that have a tag for that course. The links in theCourseForum department and professor pages work the same way. If a user is looking for a very general question, they can link to the main forum page from the main theCourseForum page.
+
+###Looking to the Future
+While we feel that we have made some important progress, our project did have a somewhat large learning curve that took up some of our available time. Before taking any action, we needed to become familiar with the existing theCourseForum, and eventually Discourse, code. Both are written in Ruby on Rails, which none of us had experience with. This meant that we had to learn how Rails is used, and understand how theCourseForum and Discourse applications were designed. This endeavor took much more time than we initially anticipated. Some of our solutions were designed recognizing this. We designed solutions that would produce good results, even if we had not figured out every nuance to the code we were starting with. In the future, we hope to have more of a change to refactor a solution that most efficiently utilizes the design of the starting code. One example of this is the way that theCourseForum and Discourse use databases. Right now, they have separate databases. We decided that combining them would be very difficult (but possible) and that we should focus on getting a first version up and running. One of the first steps in continuing this project would be to combine the databases and achieve more efficient integration.
